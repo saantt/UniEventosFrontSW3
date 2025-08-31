@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AbstractControlOptions, FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { PublicoService } from '../../servicios/publico.service';
 import { InformacionCuentaDTO } from '../../dto/informacion-cuenta-dto';
 import { ActivatedRoute } from '@angular/router';

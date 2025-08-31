@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivarCuentaDTO } from '../../dto/activar-cuenta-dto';
+
 import { PublicoService } from '../../servicios/publico.service';
 import Swal from 'sweetalert2';
 

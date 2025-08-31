@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 import { PublicoService } from '../../servicios/publico.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';

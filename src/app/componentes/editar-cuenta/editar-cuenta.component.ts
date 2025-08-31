@@ -7,6 +7,7 @@ import { CrearCuentaDTO } from '../../dto/crear-cuenta-dto';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { EditarCuentaDTO } from '../../dto/editar-cuenta-dto';
 import { AdministradorService } from '../../servicios/administrador.service';
+
 import { PublicoService } from '../../servicios/publico.service';
 import { InformacionCuentaDTO } from '../../dto/informacion-cuenta-dto';
 @Component({
