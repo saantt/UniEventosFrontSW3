@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Proyecto-Front-SW3": {
+    "my-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/proyecto-front-sw3",
+            "outputPath": "dist/my-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,9 +27,12 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [   "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+          ]
           },
           "configurations": {
             "production": {
@@ -41,8 +44,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
@@ -59,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Proyecto-Front-SW3:build:production"
+              "buildTarget": "my-app:build:production"
             },
             "development": {
-              "buildTarget": "Proyecto-Front-SW3:build:development"
+              "buildTarget": "my-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,6 +97,6 @@
     }
   },
   "cli": {
-    "analytics": "1649783c-9551-4e64-9163-1b3880843560"
+    "analytics": "082149db-814c-4f0d-9628-b256cb63987b"
   }
 }
