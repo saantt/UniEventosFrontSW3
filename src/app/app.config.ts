@@ -12,4 +12,8 @@ export const appConfig: ApplicationConfig = {
    provideRouter(routes),
    provideHttpClient(withInterceptors([usuarioInterceptor]))
  ]
+<<<<<<< Updated upstream
 };
+=======
+};
+>>>>>>> Stashed changes

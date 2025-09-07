@@ -14,4 +14,8 @@ import { FooterComponent } from "./componentes/footer/footer.component";
 export class AppComponent {
   title = 'my-app';
   footer= 'Universidad del Quindío - 2024-2';
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
