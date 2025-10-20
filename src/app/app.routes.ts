@@ -40,16 +40,11 @@ export const routes: Routes = [
   { path: 'pago-pendiente',component: PagoPendienteComponent },
   { path: 'cambiar-contrasenia/:id', component: CambiarContraseniaComponent },
   { path: 'confirmar-orden/:id', component: ConfirmarOrdenComponent },
-   { path: "gestion-eventos", component: GestionEventosComponent,canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },
-   { path: 'crear-evento', component: CrearEventoComponent,canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },  // Ruta para crear evento
    { path: 'detalle-evento/:id', component: DetalleEventoComponent },
    { path: 'carrito', component: CarritoComponent },  // Ruta para el carrito de compras
-   { path: 'crear-cupon', component: CrearCuponComponent , canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },  // Ruta para crear cupones
-   { path: 'editar-cupon/:id', component: EditarCuponComponent,   canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] }  },
-   { path: "gestion-cupones", component: GestionCuponesComponent, canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },
-   { path: 'editar-evento/:id', component: EditarEventoComponent ,canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },
-   { path: 'editar-cuenta/:id', component: EditarCuentaComponent ,canActivate: [RolesGuard], data: { expectedRole: ["CLIENTE"] } },
-   { path: 'obtener-info-cuenta/:id', component: ObtenerCuentaComponent  },
+
+   { path: 'editar-cuenta/:id', component: EditarCuentaComponent  },
+   { path: 'obtener-cuenta/:id', component: ObtenerCuentaComponent  },
    { path: 'confirmar-orden', component: ConfirmarOrdenComponent },  // Ruta para confirmar orden
    { path: 'agregar-item', component: AgregarItemComponent },  // Ruta para agregar ítems
    { path: 'recuperar-contrasenia', component: RecuperarContraseniaComponent },  // Ruta para recuperar contraseña
@@ -58,12 +53,10 @@ export const routes: Routes = [
    { path: 'registro', component: RegistroComponent, canActivate: [LoginGuard] },
    { path: 'activar-cuenta', component: ActivarCuentaComponent, },
    { path: 'nueva-contrasenia', component: NuevaContraseniaComponent }, //ruta para cambiar contrasenia sin estar logueado, por ¿Olvidaste tu Contrasenia?
-   { path: 'crear-evento', component: CrearEventoComponent, canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },
-   { path: "gestion-eventos", component: GestionEventosComponent, canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },
-   { path: "gestion-cupones", component: GestionCuponesComponent, canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },
+
    { path: "gestion-mis-boletas", component: BoletaComponent },//, canActivate: [RolesGuard], canActivate: [RolesGuard], data: { expectedRole: ["CLIENTE"] }
 
-   { path: 'panel-admin', component: PanelAdminComponent, canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },
+   
    { path: "historial-compras/:id", component: HistorialComprasComponent, canActivate: [RolesGuard], data: { expectedRole: ["CLIENTE"] } },
    { path: "**", pathMatch: "full", redirectTo: "" }  // Redirección a la página de inicio para rutas no encontradas
 ];

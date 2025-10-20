@@ -34,11 +34,11 @@ export class EditarEventoComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.crearFormulario();
-    this.tiposDeEvento = ['Concierto', 'Fiesta', 'Teatro', 'Deportes'];
+    this.tiposDeEvento = ['DEPORTE','CONCIERTO','CULTURAL','MODA','BELLEZA'];
     this.ciudades = ['Armenia', 'Cartagena', 'Pereira', 'Cali'];
   }
 
-  
+
 
   private crearFormulario() {
     this.crearEventoForm = this.formBuilder.group({
@@ -49,16 +49,16 @@ export class EditarEventoComponent implements OnInit {
       ciudad: ['', [Validators.required]],
       localidades: this.formBuilder.array([]),
       fechaEvento: ['', Validators.required],
-      imagenPortada: ['', Validators.required],
-      imagenLocalidades: ['', Validators.required]
-      
-      
+      imagenPortada: [{}, Validators.required],
+      imagenLocalidades: [{}, Validators.required]
+
+
     });
   }
 
-  
 
-  
+
+
   public obtenerEvento() {
     this.adminService.obtenerEvento(this.codigoEvento).subscribe({
       next: (data) => {
@@ -68,16 +68,16 @@ export class EditarEventoComponent implements OnInit {
             ? new Date(evento.fechaEvento).toISOString().split('T')[0]
             : '';
 
-            this.crearEventoForm.patchValue({
-              id: evento.id,
-              nombre: evento.nombre,
-              descripcion: evento.descripcion,
-              tipo: evento.tipo,
-              ciudad: evento.ciudad,
-              fechaEvento: evento.fechaEvento,
-              imagenLocalidades: evento.imagenLocalidades,
-              imagenPortada: evento.imagenPortada
-            });
+          this.crearEventoForm.patchValue({
+            id: evento.id,
+            nombre: evento.nombre,
+            descripcion: evento.descripcion,
+            tipo: evento.tipo,
+            ciudad: evento.ciudad,
+            fechaEvento: evento.fechaEvento,
+            imagenLocalidades: { url: evento.imagenLocalidades },
+            imagenPortada: { url: evento.imagenPortada }
+          });
 
           this.localidades.clear();
           evento.localidades.forEach((localidad: any) => {
@@ -98,9 +98,9 @@ export class EditarEventoComponent implements OnInit {
   }
 
 
- 
 
- 
+
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.codigoEvento = params.get('id') || '';
@@ -113,7 +113,7 @@ export class EditarEventoComponent implements OnInit {
     this.listarCiudades();
     this.listarTipos();
   }
-  
+
 
   public editarEvento() {
     if (this.crearEventoForm.valid) {
@@ -140,9 +140,9 @@ export class EditarEventoComponent implements OnInit {
       const file = event.target.files[0];
       tipo == 'localidades' ? (this.imagenLocalidades = file) : (this.imagenPortada = file);
     }
-   }
-   
-  
+  }
+
+
   get localidades(): FormArray {
     return this.crearEventoForm.get('localidades') as FormArray;
   }
@@ -154,12 +154,12 @@ export class EditarEventoComponent implements OnInit {
     });
     this.localidades.push(localidadFormGroup);
   }
-  
+
   eliminarLocalidad(indice: number) {
     this.localidades.removeAt(indice);
   }
-  
-  public listarTipos(){
+
+  public listarTipos() {
     this.publicoService.listarTipos().subscribe({
       next: (data) => {
         this.tiposDeEvento = data.respuesta;
@@ -168,9 +168,9 @@ export class EditarEventoComponent implements OnInit {
         console.error(error);
       },
     });
-   }
-   
-   public listarCiudades(){
+  }
+
+  public listarCiudades() {
     this.publicoService.listarCiudades().subscribe({
       next: (data) => {
         this.ciudades = data.respuesta;
@@ -179,16 +179,17 @@ export class EditarEventoComponent implements OnInit {
         console.error(error);
       },
     });
-   }
-   
-   public subirImagen(tipo:string){
+  }
+
+  public subirImagen(tipo: string) {
     const formData = new FormData();
     const imagen = tipo == 'portada' ? this.imagenPortada : this.imagenLocalidades;
     const formControl = tipo == 'portada' ? 'imagenPortada' : 'imagenLocalidades';
-   
-   
+    console.log(this.crearEventoForm.value);
+
+
     formData.append('imagen', imagen!);
-  
+
     this.adminService.subirImagen(formData).subscribe({
       next: (data: { respuesta: any; }) => {
         this.crearEventoForm.get(formControl)?.setValue(data.respuesta);
@@ -198,11 +199,10 @@ export class EditarEventoComponent implements OnInit {
         Swal.fire("Error!", error.error.respuesta, "error");
       }
     });
-   
-   
-   }
-  
-   
-   
+
+
   }
-  
+
+
+
+}

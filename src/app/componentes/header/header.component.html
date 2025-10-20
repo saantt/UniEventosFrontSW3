@@ -12,17 +12,8 @@
         <li class="nav-item">
           <a routerLink="" class="nav-link text-center">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a routerLink="/gestion-eventos" class="nav-link text-center">Gestión de eventos</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/gestion-cupones" class="nav-link text-center">Gestión de cupones</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/carrito" class="nav-link text-center">
-            <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito -->
-          </a>
-        </li>
+       
+      
         
        
       </ul>
@@ -34,7 +25,7 @@
           }@else {
           <label class="me-3">{{correo}}</label>
 
-          <button type="button" [routerLink]="['/obtener-info-cuenta', IdCuenta]" class="btn btn-outline-primary btn-sm">Perfil</button>
+          <button type="button" [routerLink]="['/obtener-cuenta', IdCuenta]" class="btn btn-outline-primary btn-sm">Perfil</button>
 
           <button type="button" (click)="logout()" class="btn btn-outline-danger btn-sm ms-2">Cerrar sesión</button>
           

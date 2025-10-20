@@ -20,8 +20,8 @@
             <option *ngFor="let item of tiposDeEvento" [value]="item">{{ item }}</option>
         </select>
     </div>
-  
-    <!-- Campo Dirección 
+
+    <!-- Campo Dirección
     <div class="mb-3">
         <label class="form-label">Dirección:</label>
         <input type="text" class="form-control" formControlName="direccion"/>
@@ -72,6 +72,7 @@
             <button type="button" class="btn btn-primary" (click)="subirImagen('portada')">
                 <i class="fa-solid fa-cloud-arrow-up"></i> Subir
             </button>
+            <img src="{{crearEventoForm.get('imagenImportada')?.value.url}}" width="100px" />
         </div>
     </div>
   
@@ -83,6 +84,7 @@
             <button type="button" class="btn btn-primary" (click)="subirImagen('localidades')">
                 <i class="fa-solid fa-cloud-arrow-up"></i> Subir
             </button>
+            <img src="{{crearEventoForm.get('imagenLocalidades')?.value.url}}" width="100px" />
         </div>
     </div>
   

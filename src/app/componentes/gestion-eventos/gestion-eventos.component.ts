@@ -91,8 +91,15 @@ export class GestionEventosComponent {
   });
  }
  public eliminarEventos() {
-  this.seleccionados.forEach((e1: { id: string | String; }) => {
-    this.eventosService.eliminar(e1.id);
+  this.seleccionados.forEach((e1: { id: string  }) => {
+    this.adminService.eliminarEvento(e1.id).subscribe({
+      next: (data) => {
+      console.log(data.respuesta);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
     this.eventos = this.eventos.filter(e2 => e2.id !== e1.id);
   });
   this.seleccionados = [];

@@ -46,7 +46,7 @@
             <td>
               <button
                 class="btn btn-info btn-sm"
-                (click)="obtenerDetalleBoleta(boleta.idBoleta, boleta.idClientePropietario)"
+                (click)="obtenerDetalleBoleta(boleta.idBoleta, this.idCuenta)"
               >
                 Ver Detalle
               </button>
@@ -72,7 +72,7 @@
       <p><strong>Localidad:</strong> {{ detalleBoleta.nombreLocalidad }}</p>
       <p><strong>Estado:</strong> {{ detalleBoleta.estado }}</p>
       <p><strong>ID del Propietario Original:</strong> {{ detalleBoleta.idPropietarioOriginal }}</p>
-      <button class="btn btn-primary" (click)="aceptarBoleta(detalleBoleta.idBoleta, detalleBoleta.idClientePropietario)">Aceptar Boleta</button>
+      <button class="btn btn-primary" (click)="aceptarBoleta(detalleBoleta.idBoleta, this.idCuenta)">Aceptar Boleta</button>
     </div>
   </div>
 

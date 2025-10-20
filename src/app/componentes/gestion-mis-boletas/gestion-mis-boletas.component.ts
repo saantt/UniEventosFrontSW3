@@ -261,6 +261,7 @@ export class BoletaComponent implements OnInit {
   aceptarBoleta(idBoleta: string, idNuevoPropietario: string): void {
     this.ClienteService.aceptarBoleta(idBoleta, idNuevoPropietario).subscribe({
       next: (respuesta: MensajeDTO) => {
+        console.log(respuesta.respuesta);
         this.mensaje = this.mensaje;
         Swal.fire({
           icon: 'success',
