@@ -1,0 +1,43 @@
+.accesibilidad-floating {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2000;
+  align-items: center;
+}
+.acc-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,123,255,0.95);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.acc-btn:hover { transform: translateY(-3px); }
+.acc-btn.contrast { background: rgba(40,40,40,0.95); }
+
+/* Alto contraste global */
+body.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+body.high-contrast a { color: #0ff !important; }
+body.high-contrast .card, body.high-contrast .navbar, body.high-contrast .container {
+  background-color: #111 !important;
+  border-color: #444 !important;
+  color: #fff !important;
+}
+body.high-contrast input, body.high-contrast textarea, body.high-contrast select {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
